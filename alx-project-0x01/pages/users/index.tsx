@@ -15,7 +15,7 @@ const Users: React.FC<UserProps> = ({ posts }: any) => {
         </div>
 
         <div className="grid grid-cols-3 gap-2 w-full mt-6">
-          {posts?.map(
+          {posts.map(
             (
               {
                 id,
