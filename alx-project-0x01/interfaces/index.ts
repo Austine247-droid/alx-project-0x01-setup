@@ -5,6 +5,10 @@ export interface PostProps {
   title: string;
   body: string;
 }
+export interface PostPageProps {
+  posts: PostProps[];
+}
+
 // User interface definition for the user data structure
 export interface UserProps {
   id: number;
@@ -30,6 +34,17 @@ export interface UserProps {
   };
 }
 
+export interface PostData {
+  userId: number;
+  id?: number;
+  title: string;
+  body: string;
+}
+
+export interface PostModalProps {
+  onClose: () => void;
+  onSubmit: (post: PostData) => void;
+}
 // export interface Welcome {
 //   id: number;
 //   name: string;

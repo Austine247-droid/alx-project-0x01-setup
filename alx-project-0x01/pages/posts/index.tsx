@@ -1,8 +1,8 @@
 import PostCard from "@/components/common/PostCard";
 import Header from "@/components/layout/Header";
-import { PostProps } from "@/interfaces";
+import { PostPageProps, PostProps } from "@/interfaces";
 
-const Posts: React.FC<PostProps[]> = ({ posts }: any) => {
+const Posts: React.FC<PostPageProps> = ({ posts }: PostPageProps) => {
   console.log(posts);
   return (
     <div className="flex flex-col h-screen">
@@ -32,7 +32,7 @@ const Posts: React.FC<PostProps[]> = ({ posts }: any) => {
 
 export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await response.json();
+  const posts: PostProps[] = await response.json();
 
   return {
     props: {
