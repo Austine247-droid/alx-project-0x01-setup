@@ -1,7 +1,7 @@
-import { PostUserProps, UserData } from "@/interfaces";
+import { UserModalProps, UserData } from "@/interfaces";
 import { useState } from "react";
 
-const UserModal = ({ onClose, handleAddUser }: PostUserProps) => {
+const UserModal = ({ onClose, handleAddUser }: UserModalProps) => {
   const [userId, setUserId] = useState<number>(1);
   const [name, setName] = useState<string>("");
   const [username, setUsername] = useState<string>("");
