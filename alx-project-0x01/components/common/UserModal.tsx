@@ -1,7 +1,7 @@
 import { UserModalProps, UserData } from "@/interfaces";
 import { useState } from "react";
 
-const UserModal = ({ onClose, handleAddUser }: UserModalProps) => {
+const UserModal = ({ onClose, onSubmit }: UserModalProps) => {
   const [User, setUser] = useState<UserData>({
     id: 1,
     name: "",
@@ -51,7 +51,7 @@ const UserModal = ({ onClose, handleAddUser }: UserModalProps) => {
       address,
     });
 
-    handleAddUser(User);
+    onSubmit(User);
     onClose(); // Close the modal after submission
 
     // const newUser: UserData = {

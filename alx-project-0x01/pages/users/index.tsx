@@ -58,7 +58,7 @@ const Users: React.FC<UserProps> = ({ posts }: any) => {
         {UserModalOpen && (
           <UserModal
             onClose={() => setUserModalOpen(false)}
-            handleAddUser={handleAddUser}
+            onSubmit={handleAddUser}
           />
         )}
       </main>
