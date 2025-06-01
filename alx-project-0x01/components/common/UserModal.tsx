@@ -2,6 +2,26 @@ import { UserModalProps, UserData } from "@/interfaces";
 import { useState } from "react";
 
 const UserModal = ({ onClose, handleAddUser }: UserModalProps) => {
+  const [User, setUser] = useState<UserData>({
+    id: 1,
+    name: "",
+    username: "",
+    email: "",
+    address: {
+      street: "",
+      suite: "",
+      city: "",
+      zipcode: "",
+      geo: { lat: "", lng: "" },
+    },
+    phone: "",
+    website: "",
+    company: {
+      name: "",
+      catchPhrase: "",
+      bs: "",
+    },
+  });
   const [userId, setUserId] = useState<number>(1);
   const [name, setName] = useState<string>("");
   const [username, setUsername] = useState<string>("");
@@ -31,22 +51,23 @@ const UserModal = ({ onClose, handleAddUser }: UserModalProps) => {
       address,
     });
 
-    const newUser: UserData = {
-      id: userId, // Assuming userId is unique and can be used as ID
-      name,
-      username,
-      email,
-      address,
-      phone: "", // Placeholder, replace with actual logic if needed
-      website: "", // Placeholder, replace with actual logic if needed
-      company: {
-        name: "", // Placeholder, replace with actual logic if needed
-        catchPhrase: "", // Placeholder, replace with actual logic if needed
-        bs: "", // Placeholder, replace with actual logic if needed
-      },
-    };
-    handleAddUser(newUser);
+    handleAddUser(User);
     onClose(); // Close the modal after submission
+
+    // const newUser: UserData = {
+    //   id: userId, // Assuming userId is unique and can be used as ID
+    //   name,
+    //   username,
+    //   email,
+    //   address,
+    //   phone: "", // Placeholder, replace with actual logic if needed
+    //   website: "", // Placeholder, replace with actual logic if needed
+    //   company: {
+    //     name: "", // Placeholder, replace with actual logic if needed
+    //     catchPhrase: "", // Placeholder, replace with actual logic if needed
+    //     bs: "", // Placeholder, replace with actual logic if needed
+    //   },
+    // };
   };
 
   return (
